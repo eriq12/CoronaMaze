@@ -24,8 +24,8 @@ public class Player_movement : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical) * speed;
 
-        rb2d.velocity = movement * speed;
+        rb2d.velocity = Vector2.Lerp(movement, rb2d.velocity, Time.deltaTime);
     }
 }
