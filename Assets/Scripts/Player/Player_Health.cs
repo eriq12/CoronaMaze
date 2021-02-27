@@ -52,9 +52,9 @@ public class Player_Health : MonoBehaviour
     void Start()
     {
         currentStageInfect = 0;
+        currentHP = maxHP;
         hpBar.maxValue = maxHP;
         infectionBar.maxValue = maxInfectStages;
-        currentHP = maxHP;
         infectionBar.value = currentStageInfect;
     }
 
