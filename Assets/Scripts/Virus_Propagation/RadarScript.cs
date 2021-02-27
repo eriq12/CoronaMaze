@@ -7,6 +7,10 @@ public class RadarScript : MonoBehaviour
     [SerializeField]
     private int enemies = 0;
 
+    // value out of 10,000
+    [SerializeField]
+    private int chanceInfect = 2;
+
     // parent player
     [SerializeField]
     private Player_Health playerHealth;
@@ -21,7 +25,10 @@ public class RadarScript : MonoBehaviour
     void Update()
     {
         if(enemies > 0){
-            playerHealth.Damage(enemies * Time.deltaTime);
+            int sample = Random.Range(0,10000);
+            if(sample < (chanceInfect * enemies)){
+                playerHealth.Infect();
+            }
         }
     }
 
