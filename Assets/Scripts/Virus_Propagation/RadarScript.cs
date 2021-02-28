@@ -16,13 +16,12 @@ public class RadarScript : MonoBehaviour
     private int chanceInfect = 20;
 
     // parent player
-    [SerializeField]
     private Player_Health playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth = transform.parent.gameObject.GetComponent<Player_Health>();
+        playerHealth = gameObject.GetComponent<Player_Health>();
         peopleLayer = new ContactFilter2D();
         peopleLayer.SetLayerMask(LayerMask.GetMask("Enemy"));
     }
