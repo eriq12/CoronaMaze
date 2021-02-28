@@ -55,7 +55,9 @@ public class Player_Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentStageInfect = 0;
+
+        //currentStageInfect = Random.Range(0, 3);
+        currentStageInfect = 3;
         currentHP = maxHP;
         if(hpBar && infectionBar){
             hpBar.maxValue = maxHP;

@@ -236,6 +236,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &108957025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3018484696693662182, guid: 66512e3f56d2a024c87e74bea9dd8d34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1808672157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &108957031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108957025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1deff3a512be4884d9c072d3c4e5ea0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPH: {fileID: 0}
+  moveSpeed: 5
 --- !u!1 &183285463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,6 +2127,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8563780677291911067}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2107662236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107662235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcfaa8a786bd0f45a4350f330915167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infectRadius: 6
+  chanceInfect: 20
+  playerHealth: {fileID: 0}
 --- !u!114 &2107662240
 MonoBehaviour:
   m_ObjectHideFlags: 0
