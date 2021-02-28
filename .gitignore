@@ -4,3 +4,5 @@
 /obj/*
 /Temp/*
 .vscode/settings.json
+Assets/Scripts/Debug.meta
+Assembly-CSharp.csproj
