@@ -24,6 +24,9 @@ public class Player_Health : MonoBehaviour
     // bar to visualize infection stage
     [SerializeField]
     private Slider infectionBar;
+
+    // player color vizualizer to infection
+    private SpriteRenderer spriteRenderer;
     
     // determines the max stages of infection
     [SerializeField]
@@ -42,6 +45,7 @@ public class Player_Health : MonoBehaviour
     private float recoverTime = 5.0f;
 
     // timer that holds time left until a stage is depleted
+    [SerializeField]
     private float recoveryTimer;
 
     // amount of health that will be recovered per second
@@ -53,9 +57,13 @@ public class Player_Health : MonoBehaviour
     {
         currentStageInfect = 0;
         currentHP = maxHP;
-        hpBar.maxValue = maxHP;
-        infectionBar.maxValue = maxInfectStages;
-        infectionBar.value = currentStageInfect;
+        if(hpBar && infectionBar){
+            hpBar.maxValue = maxHP;
+            infectionBar.maxValue = maxInfectStages;
+            infectionBar.value = currentStageInfect;
+        }
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.white;
     }
 
     // Update is called once per frame
@@ -74,24 +82,35 @@ public class Player_Health : MonoBehaviour
         // are there still stages
         else if(currentStageInfect > 0){
             currentStageInfect--;
-            infectionBar.value = currentStageInfect;
+            if(infectionBar){
+                infectionBar.value = currentStageInfect;
+            }
             recoveryTimer = recoverTime;
         }
         // recover health
-        else {
+        else if(currentHP < maxHP) {
             currentHP += recoverRate * Time.deltaTime;
+            if(currentHP > maxHP){
+                currentHP = maxHP;
+            }
         }
 
         // handles visual
         if(hpBar){
             hpBar.value = currentHP;
         }
+        spriteRenderer.color = (currentHP * Color.white + (maxHP - currentHP) * Color.red) / maxHP;
+    }
+
+    public int GetInfStage(){
+        return currentStageInfect;
     }
 
     // increases infection stage
     public void Infect(){
         if(currentStageInfect < maxInfectStages){
-            infectionBar.value = ++currentStageInfect;
+            currentStageInfect++;
+            infectionBar.value = currentStageInfect;
         }
         recoveryTimer = recoverTime;
     }
